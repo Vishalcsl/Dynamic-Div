@@ -49,7 +49,7 @@ componentDidMount()
        return {background: 'rgb(' + rand() + "," + rand() + "," + rand()}
     }
     var divs = array.map((val, index) =>{
-      return React.createElement('div',{ style: randColor(), className: 'box', id:'index'}, 'Vishal');
+      return React.createElement('div',{ style: randColor(), className: 'box', id:'index'}, 'Mishra');
     });
  
     return (
