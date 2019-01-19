@@ -1,28 +1,63 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-class App extends Component {
-  render() {
+class App extends Component{
+constructor(){
+  super();
+  this.state={
+    count:8,
+    subtract:false
+  }
+  this.autoplay = this.autoplay.bind(this);
+}
+
+autoplay = ()=>{
+
+  var play = setInterval(()=>{
+    var count = this.state.count;
+  
+    var newCount = 80;
+
+    if(count === 80){
+      this.setState({subtract:true});
+    }else if(count === 0){
+      this.setState({subtract:false});
+    }
+
+    if(this.state.subtract){
+      newCount = count -1;
+    }else if(!this.state.subtract){
+      newCount = count + 1;
+    }
+
+    this.setState({count:newCount});
+  },40);
+}
+
+
+componentDidMount()
+ {
+    this.autoplay();
+   }
+  render()
+  {
+    var array = new Array(parseFloat(this.state.count));
+    for(var i=0;i<array.length;i++)
+        array[i]= i;
+    var rand = ()=> Math.floor(Math.random()*255);
+    var randColor = function randColor()
+    {
+       return {background: 'rgb(' + rand() + "," + rand() + "," + rand()}
+    }
+    var divs = array.map((val, index) =>{
+      return React.createElement('div',{ style: randColor(), className: 'box', id:'index'}, 'Vishal');
+    });
+ 
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+        <div className="App">
+            {divs}
+        </div>
+    )
   }
 }
 
-export default App;
+export default App

@@ -6,9 +6,31 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(30,30,30);
+  color:white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.App{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  margin-top:30px;
+  margin-bottom:30px;
+}
+
+.box{
+  display:flex;
+  margin: 3px;
+  width: 100px;
+  height: 100px;
+  border-radius:5px;
+  border: 1px solid #000;
+  justify-content: center;
+  align-items:center;
+  color:white;
+  font-weight: 400;
+  font-size:30px;
+  font-family:"Times New Roman", sans-serif;
 }
